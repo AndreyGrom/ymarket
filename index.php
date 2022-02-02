@@ -16,7 +16,6 @@ if ($markets = $ym->GetMarkets($token, $client_id)){
 }
 if (isset($get['campaign_id'])){
     $offers = $ym->GetOffers($client_id, $client_secret, $get['campaign_id']);
-
 }
 ?>
 

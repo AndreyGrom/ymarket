@@ -1,6 +1,8 @@
 <?php
 class YMarket{
-    private $url = '';
+    private $url;
+    private $client_id;
+    private $client_secret;
     public function GetToken($client_id, $client_secret){
         $query = array(
             'grant_type' => 'authorization_code',
@@ -46,8 +48,8 @@ class YMarket{
             )
         );
         $context = stream_context_create($opts);
-        $result = file_get_contents('https://api.partner.market.yandex.ru/v2/campaigns/' . $campaignId .'/offers/all.json', false, $context);
-        var_dump($result);
+        //$result = file_get_contents('https://api.partner.market.yandex.ru/v2/campaigns/' . $campaignId .'/offers/all.json', false, $context);
+        $result = file_get_contents('https://api.partner.market.yandex.ru/v2/campaigns/' . $campaignId .'/offers-mapping-entries/all.json', false, $context);
         $result = json_decode($result);
         return $result ;
     }
